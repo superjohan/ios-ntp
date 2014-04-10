@@ -7,6 +7,7 @@
 
 #import <netinet/in.h>
 #import "NetworkClock.h"
+#import "ios-ntp.h"
 
 @interface NetworkClock (PrivateMethods)
 

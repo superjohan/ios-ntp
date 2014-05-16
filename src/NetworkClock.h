@@ -15,6 +15,8 @@
   ┃ early estimate and then refine that and reduce the number of notifications ...                   ┃
   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛*/
 
+extern NSString * const NetworkClockTimeReceivedNotification;
+
 @interface NetworkClock : NSObject {
 
     NSTimeInterval          timeIntervalSinceDeviceTime;

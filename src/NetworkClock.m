@@ -9,6 +9,8 @@
 #import "NetworkClock.h"
 #import "ios-ntp.h"
 
+NSString * const NetworkClockTimeReceivedNotification = @"NetworkClockTimeReceivedNotification";
+
 @interface NetworkClock (PrivateMethods)
 
 - (void) offsetAverage;
@@ -96,12 +98,13 @@
         if (timeAssociation.trusty) {
             usefulCount++;
             timeIntervalSinceDeviceTime += timeAssociation.offset;
-        }
+		}
         if (usefulCount == 8) break;                // use 8 best dispersions
     }
 
     if (usefulCount > 0) {
         timeIntervalSinceDeviceTime /= usefulCount;
+		[[NSNotificationCenter defaultCenter] postNotificationName:NetworkClockTimeReceivedNotification object:self];
     }
 //###ADDITION?
   if (usefulCount ==8)
